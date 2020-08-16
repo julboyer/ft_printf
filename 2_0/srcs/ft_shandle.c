@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 11:04:33 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/16 13:34:50 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 14:50:28 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ int		ft_shandle(t_flags flags, va_list params)
 	len = (i > flags.width) ? i : flags.width;
 	tmp = ft_calloc(sizeof(*tmp) * len, sizeof(*tmp) * len);
 	tmp = ft_strncpy(tmp, res_s, i);
-	
+	free(res_s);
+	tmp = ft_width(tmp, flags);
+	write(1, tmp, len);
+	free(tmp);
+	return (len);
 }

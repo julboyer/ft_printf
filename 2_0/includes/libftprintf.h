@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 17:38:25 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/16 12:57:37 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 14:49:56 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #  define BUFFER_SIZE 32
 # endif
 # include <wchar.h>
+# include <unistd.h>
 
 typedef struct		s_list
 {
@@ -49,6 +50,8 @@ typedef struct			s_flags
 	int					prec;
 	char				flag_width;
 	int					width;
+	int					conv_len;
+	int					total_len;
 	t_type				u;
 }						t_flags;
 
