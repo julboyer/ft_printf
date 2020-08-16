@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 18:35:56 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/16 10:52:30 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 11:00:14 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 # include <string.h>
 # include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/uio.h>
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 32
 # endif
@@ -66,9 +63,9 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_isascii(int c);
 int					ft_isprint(int c);
 t_list				*ft_lstnew(void *content);
-void				ft_lstadd_front(t_list **alst, t_list *new);
+void				ft_lstadd_front(t_list **alst, t_list *new_list);
 t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_back(t_list **alst, t_list *new);
+void				ft_lstadd_back(t_list **alst, t_list *new_list);
 void				ft_lstdelone(t_list *llst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 int					ft_lstsize(t_list *lst);
