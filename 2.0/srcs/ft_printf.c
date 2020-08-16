@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 16:07:47 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/15 12:56:28 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 09:44:18 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,24 @@
 #include <stdio.h>
 #include "ft_printf.h"
 #include "libft.h"
+
+int	ft_printarg(t_flags flags, va_list params, int res)
+{
+	if (flags.convert == 'c' || flags.convert == '%')
+		res += ft_chandle(flags, params);
+	else if (flags.convert == 'u' || flags.convert == 'x'
+	|| flags.convert == 'X' || flags.convert == 'o')
+		res += ft_xhandle(flags, params);
+	else if (flags.convert == 'd' || flags.convert == 'i')
+		res += ft_d_handle(flags, params);
+	else if (flags.convert == 'p')
+		res += ft_p_handle(flags, params);
+	else if (flags.convert == 'n')
+		ft_nhandle(flags, params, res);
+	else if (flags.convert == 's')
+		res += ft_shandle(flags, params);
+	return (res);
+}
 
 void	ft_verif_flags(t_flags *flags)
 {
