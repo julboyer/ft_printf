@@ -6,11 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 18:47:16 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/30 11:23:37 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:04:31 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

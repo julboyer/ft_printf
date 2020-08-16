@@ -6,12 +6,12 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 17:02:09 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/28 17:56:26 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:05:55 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "libftprintf.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

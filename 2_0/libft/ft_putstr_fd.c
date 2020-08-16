@@ -6,12 +6,12 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/08 15:44:29 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/08 18:05:55 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:03:27 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
+#include "libftprintf.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

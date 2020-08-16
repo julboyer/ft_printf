@@ -6,11 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/18 10:54:08 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/03 15:46:03 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:06:03 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 int		get_next_line2(int fd, char **tmp, char **sub)
 {

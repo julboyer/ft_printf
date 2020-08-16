@@ -6,11 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/18 11:26:32 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/30 11:22:54 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:04:07 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 char	*ft_strdup(char *s1)
 {

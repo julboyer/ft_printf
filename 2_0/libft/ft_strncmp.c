@@ -6,11 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 10:06:31 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/30 11:24:10 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:05:03 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {

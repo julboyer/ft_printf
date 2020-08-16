@@ -6,11 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 15:33:42 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/30 11:23:53 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:04:47 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 size_t		ft_strlen(const char *str)
 {

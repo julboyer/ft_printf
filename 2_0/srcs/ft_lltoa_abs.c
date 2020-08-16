@@ -6,13 +6,13 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 19:51:49 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/16 10:38:54 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:06:36 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <limits.h>
-#include "libft.h"
+#include "libftprintf.h"
 #include <stdio.h>
 
 static int			ft_intlen(long long n)

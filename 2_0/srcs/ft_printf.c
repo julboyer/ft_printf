@@ -6,14 +6,13 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 16:07:47 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/16 09:44:18 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:34:01 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdio.h>
-#include "ft_printf.h"
-#include "libft.h"
+#include "libftprintf.h"
 
 int	ft_printarg(t_flags flags, va_list params, int res)
 {

@@ -6,12 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/12 16:35:49 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/13 09:19:05 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:35:35 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
+#include "libftprintf.h"
 
 void	ft_nhandle(t_flags flags, va_list params, int res)
 {

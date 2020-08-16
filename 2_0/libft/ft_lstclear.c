@@ -6,11 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 18:58:17 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/14 10:25:41 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:02:10 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 #include <stdlib.h>
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))

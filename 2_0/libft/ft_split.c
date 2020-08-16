@@ -6,12 +6,12 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 18:17:16 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/25 20:14:44 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:03:36 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "libftprintf.h"
 
 static int		ft_wordcount(char const *s, char c)
 {

@@ -6,12 +6,12 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/10 14:02:03 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/12 18:15:13 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:03:21 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libft.h"
+#include "libftprintf.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

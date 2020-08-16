@@ -6,11 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/10 14:47:44 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/30 11:24:01 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:04:57 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

@@ -6,11 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 17:38:56 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/30 11:23:05 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:04:25 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

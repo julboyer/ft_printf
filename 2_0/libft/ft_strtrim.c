@@ -6,12 +6,12 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/10 18:06:39 by julboyer          #+#    #+#             */
-/*   Updated: 2020/07/28 13:07:25 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:05:48 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include "libftprintf.h"
 
 static int			ft_charcmp(char c, char const *set)
 {

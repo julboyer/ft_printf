@@ -6,11 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/13 11:48:22 by julboyer          #+#    #+#             */
-/*   Updated: 2020/05/14 10:21:18 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:02:52 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 int		ft_lstsize(t_list *lst)
 {

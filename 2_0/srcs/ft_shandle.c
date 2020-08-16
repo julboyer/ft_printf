@@ -6,12 +6,11 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 11:04:33 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/16 12:27:17 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:34:50 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "libft.h"
+#include "libftprintf.h"
 
 int		ft_shandle(t_flags flags, va_list params)
 {
@@ -27,7 +26,7 @@ int		ft_shandle(t_flags flags, va_list params)
 	i = ft_strlen(res_s);
 	i = (flags.prec > -1 && flags.prec < i) ? flags.prec : i;
 	len = (i > flags.width) ? i : flags.width;
-	tmp = ft_calloc(sizeof(*tmp) * len);
+	tmp = ft_calloc(sizeof(*tmp) * len, sizeof(*tmp) * len);
 	tmp = ft_strncpy(tmp, res_s, i);
 	
 }

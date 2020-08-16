@@ -6,13 +6,13 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 16:06:27 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/13 09:23:44 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/16 13:35:20 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
-#include "../headers/libft.h"
+#include "libftprintf.h"
 
 static unsigned int	ft_nbrlen(unsigned long long n, unsigned int base_len)
 {
