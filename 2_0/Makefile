@@ -70,7 +70,7 @@ OBJ = ${SRCS:.c=.o}
 
 BOBJ = ${BSRCS:.c=.o}
 
-HEADERS = ./headers
+HEADERS = ./includes
 
 CC = gcc
 
