@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 17:38:25 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/16 14:49:56 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/18 14:12:10 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ typedef union			u_type
 
 typedef struct			s_flags
 {
-	char				convert;
+	char				conv;
 	int					type;
 	char				pref;
 	int					prec;
 	char				flag_width;
 	int					width;
-	int					conv_len;
+	int					s_conv;
 	int					total_len;
 	t_type				u;
 }						t_flags;
@@ -109,12 +109,28 @@ char					*ft_strcat(char *dest, char *src);
 char					*ft_strcpy(char *dest, char *src);
 char					*ft_strncpy(char *dest, char *src, unsigned int n);
 char					*ft_ltoa(long int n);
-
 char					*ft_ulltoa_base(unsigned long long int n,
 		char *base);
+
 int						ft_printf(const char *s,
 		...) __attribute__((format(printf,1,2)));
 char					*ft_width(char *s, t_flags flags);
-
+long long int			ft_atoll(const char *str);
+int						ft_isprintconvert(char c);
+int						ft_isprintflag(char c);
+int						ft_shandle(t_flags flags, va_list params);
+size_t					ft_lstrlen(const wchar_t *str);
+wchar_t					*ft_lstrncpy(wchar_t *dest, wchar_t *src,
+						unsigned int n);
+wchar_t					*ft_lwidth(wchar_t *s, t_flags flags);
+void					ft_nhandle(t_flags flags, va_list params, int res);
+int						ft_chandle(t_flags flags, va_list params);
+size_t					ft_unbrlen_base(unsigned long long n,
+						unsigned int base_len);
+char					*ft_ulltoa_basep(unsigned long long n, char *base,
+						int i, int base_len);
+char					*ft_sharp_flag(char *s, t_flags flags);
+int						ft_phandle(t_flags flags, va_list params);
+int						ft_xhandle(t_flags flags, va_list params);
 
 #endif

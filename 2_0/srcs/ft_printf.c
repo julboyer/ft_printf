@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 16:07:47 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/16 13:34:01 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/18 14:11:37 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 
 int	ft_printarg(t_flags flags, va_list params, int res)
 {
-	if (flags.convert == 'c' || flags.convert == '%')
+	if (flags.conv == 'c' || flags.conv == '%')
 		res += ft_chandle(flags, params);
-	else if (flags.convert == 'u' || flags.convert == 'x'
-	|| flags.convert == 'X' || flags.convert == 'o')
+	else if (flags.conv == 'u' || flags.conv == 'x'
+	|| flags.conv == 'X' || flags.conv == 'o')
 		res += ft_xhandle(flags, params);
-	else if (flags.convert == 'd' || flags.convert == 'i')
-		res += ft_d_handle(flags, params);
-	else if (flags.convert == 'p')
-		res += ft_p_handle(flags, params);
-	else if (flags.convert == 'n')
+/*	else if (flags.conv == 'd' || flags.conv == 'i')
+		res += ft_d_handle(flags, params);*/
+	else if (flags.conv == 'p')
+		res += ft_phandle(flags, params);
+	else if (flags.conv == 'n')
 		ft_nhandle(flags, params, res);
-	else if (flags.convert == 's')
+	else if (flags.conv == 's')
 		res += ft_shandle(flags, params);
 	return (res);
 }
@@ -41,6 +41,10 @@ void	ft_verif_flags(t_flags *flags)
 	}
 	if (flags->prec >= 0 && flags->flag_width != '-')
 		flags->flag_width = ' ';
+	if (flags->conv == 'p')
+		flags->pref = '#';
+	if (flags->conv == 'u')
+		flags->pref = '\0';
 }
 
 int		ft_prec_parse(const char *s, va_list params, t_flags *flags, int i)
@@ -63,7 +67,7 @@ int		ft_prec_parse(const char *s, va_list params, t_flags *flags, int i)
 	while (s[i] == 'l' || s[i] == 'h')
 		(s[i++] == 'l') ? flags->type++ : flags->type--;
 	if (ft_isprintconvert(s[i]) == 1)
-		flags->convert = s[i++];
+		flags->conv = s[i++];
 	ft_verif_flags(flags);
 	return (i);
 }

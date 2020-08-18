@@ -1,43 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_sharp_flag.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/29 21:54:59 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/17 10:15:00 by julboyer         ###   ########.fr       */
+/*   Created: 2020/08/17 14:52:53 by julboyer          #+#    #+#             */
+/*   Updated: 2020/08/18 14:18:50 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libftprintf.h"
-#include <stdio.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_sharp_flag(char *s, t_flags flags)
 {
-	size_t			x;
-	unsigned char	*pdst;
-	unsigned char	*psrc;
-
-	pdst = dest;
-	psrc = (void*)src;
-	x = 0;
-	if ((src == 0 && dest == 0) || n == 0)
-		return (dest);
-	if (dest > src)
-		while ((x + 1) <= n)
-		{
-			pdst[n - (x + 1)] = psrc[n - (x + 1)];
-			x++;
-		}
-	else
+	if ((flags.conv == 'x' && flags.u.ulli != 0) || flags.conv == 'p')
 	{
-		while (x < n)
-		{
-			pdst[x] = psrc[x];
-			x++;
-		}
+		ft_memmove((s + 2), s, flags.s_conv);
+		s[0] = '0';
+		s[1] = 'x';
 	}
-	return (dest);
+	else if (flags.conv == 'X' && flags.u.ulli != 0)
+	{
+		ft_memmove(s + 2, s, flags.s_conv);
+		s[0] = '0';
+		s[1] = 'X';
+	}
+	else if (flags.conv == 'o' && flags.u.ulli != 0)
+	{
+		ft_memmove(s + 1, s, flags.s_conv);
+		s[0] = '0';
+	}
+	return (s);
 }

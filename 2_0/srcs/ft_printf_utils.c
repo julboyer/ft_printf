@@ -1,43 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/29 21:54:59 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/17 10:15:00 by julboyer         ###   ########.fr       */
+/*   Created: 2020/08/17 10:45:51 by julboyer          #+#    #+#             */
+/*   Updated: 2020/08/17 14:05:54 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libftprintf.h"
-#include <stdio.h>
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+size_t		ft_lstrlen(const wchar_t *str)
 {
-	size_t			x;
-	unsigned char	*pdst;
-	unsigned char	*psrc;
+	size_t i;
 
-	pdst = dest;
-	psrc = (void*)src;
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+wchar_t		*ft_lstrncpy(wchar_t *dest, wchar_t *src, unsigned int n)
+{
+	unsigned int x;
+
 	x = 0;
-	if ((src == 0 && dest == 0) || n == 0)
-		return (dest);
-	if (dest > src)
-		while ((x + 1) <= n)
-		{
-			pdst[n - (x + 1)] = psrc[n - (x + 1)];
-			x++;
-		}
-	else
+	while (src[x] && x < n)
 	{
-		while (x < n)
-		{
-			pdst[x] = psrc[x];
-			x++;
-		}
+		dest[x] = src[x];
+		x++;
+	}
+	while (x < n)
+	{
+		dest[x] = L'\0';
+		x++;
 	}
 	return (dest);
+}
+
+size_t		ft_unbrlen_base(unsigned long long n, unsigned int base_len)
+{
+	size_t x;
+
+	x = 0;
+	if (n == 0)
+		return (1);
+	while (n > 0)
+	{
+		n = n / base_len;
+		x++;
+	}
+	return (x);
 }
