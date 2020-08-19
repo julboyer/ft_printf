@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 17:38:25 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/18 14:12:10 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/19 10:21:30 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,9 @@ char					*ft_ulltoa_basep(unsigned long long n, char *base,
 char					*ft_sharp_flag(char *s, t_flags flags);
 int						ft_phandle(t_flags flags, va_list params);
 int						ft_xhandle(t_flags flags, va_list params);
+int						ft_nbrlen(long long n);
+char					*ft_lltoa_absp(long long int n, int i);
+char					*ft_positive_flag(char *s, t_flags flags);
+int						ft_dhandle(t_flags flgs, va_list params);
 
 #endif

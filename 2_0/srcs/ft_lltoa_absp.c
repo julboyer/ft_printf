@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lltoa_abs.c                                     :+:      :+:    :+:   */
+/*   ft_lltoa_absp.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 19:51:49 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/16 13:06:36 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/19 09:46:23 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,10 @@
 #include "libftprintf.h"
 #include <stdio.h>
 
-static int			ft_intlen(long long n)
-{
-	int x;
-
-	x = 0;
-	if (n == 0)
-		return (1);
-	while (n > 0 || n < 0)
-	{
-		n = n / 10;
-		x++;
-	}
-	return (x);
-}
-
-char				*ft_lltoa_abs(long long int n)
+char				*ft_lltoa_absp(long long int n, int i)
 {
 	char		*res;
-	int			i;
 
-	i = ft_intlen(n);
 	if (!(res = malloc(sizeof(*res) * (i + 1))))
 		return (NULL);
 	res[i--] = '\0';
@@ -52,6 +35,7 @@ char				*ft_lltoa_abs(long long int n)
 			n = n / 10;
 		}
 	else
-		res[0] = '0';
+		while (i >= 0)
+			res[i--] = '0';
 	return (res);
 }

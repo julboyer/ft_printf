@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 12:24:47 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/18 10:10:12 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/19 10:48:18 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ char	*ft_width(char *s, t_flags flags)
 			ft_memset(s + 2, flags.flag_width, flags.width - flags.s_conv);
 		}
 		else if (((flags.pref == '#' && flags.conv == 'o')
-		|| (flags.pref == '+' || flags.pref == ' ')) && flags.flag_width == '0')
+		|| (flags.pref == '+' || flags.pref == ' ') || flags.u.lli < 0)
+		&& flags.flag_width == '0')
 		{
 			ft_memmove(s + (flags.width - flags.s_conv) + 1, s + 1,
 			flags.s_conv - 1);

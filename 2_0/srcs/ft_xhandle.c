@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/18 10:48:45 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/18 14:40:30 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/19 10:09:51 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,14 @@ char	*ft_init_tmp(t_flags *flags, va_list params, int *i)
 		flags->u.ulli = (unsigned char)va_arg(params, unsigned int);
 	else
 		flags->u.ulli = va_arg(params, unsigned int);
-	if (flags->conv == 'x')
-		base = "0123456789abcdef";
-	else if (flags->conv == 'X')
-		base = "0123456789ABCDEF";
+	if (flags->conv == 'x' || flags->conv == 'X')
+		base = flags->conv == 'x' ? "0123456789abcdef" : "0123456789ABCDEF";
 	else
 		base = (flags->conv == 'u') ? "0123456789" : "01234567";
 	base_len = ft_strlen(base);
 	*i = (flags->prec == 0 && flags->u.lli == 0) ? 0 :
 	ft_unbrlen_base(flags->u.ulli, base_len);
+	*i = (*i > flags->prec) ? *i : flags->prec;
 	res = ft_ulltoa_basep(flags->u.ulli, base, *i, base_len);
 	return (res);
 }
@@ -56,7 +55,7 @@ int		ft_xhandle(t_flags flags, va_list params)
 	len = (len > flags.width) ? len : flags.width;
 	flags.s_conv = i;
 	flags.total_len = len;
-	res = malloc(sizeof(*res) * len);
+	res = malloc(sizeof(*res) * len + 1);
 	res = ft_strcpy(res, tmp);
 	free(tmp);
 	if (flags.pref == '#')
@@ -67,5 +66,6 @@ int		ft_xhandle(t_flags flags, va_list params)
 	if (len == flags.width && flags.width != 0)
 		res = ft_width(res, flags);
 	write(1, res, len);
+	free(res);
 	return (len);
 }

@@ -52,21 +52,27 @@ LSRCS = ${LCPATH}ft_atoi.c \
 		${LCPATH}ft_strcat.c \
 		${LCPATH}ft_strcpy.c \
 		${LCPATH}ft_strncpy.c \
-		${CPATH}ft_ulltoa_base.c \
+		${LCPATH}ft_ulltoa_base.c \
 		${LCPATH}get_next_line.c
 
 SRCS =	${CPATH}ft_atoll.c \
 		${CPATH}ft_isprintconvert.c \
 		${CPATH}ft_isprintflag.c \
-		${CPATH}ft_lltoa_abs.c \
+		${CPATH}ft_lltoa_absp.c \
 		${CPATH}ft_nhandle.c \
 		${CPATH}ft_printf.c \
 		${CPATH}ft_chandle.c \
 		${CPATH}ft_xhandle.c \
-		${CPATH}ft_handle.c
+		${CPATH}ft_phandle.c \
+		${CPATH}ft_printf_utils.c \
+		${CPATH}ft_shandle.c \
+		${CPATH}ft_sharp_flag.c \
+		${CPATH}ft_ulltoa_basep.c \
+		${CPATH}ft_width.c \
+		${CPATH}ft_dhandle.c \
+		${CPATH}ft_positive_flag.c
 
-BSRCS =	${CPATH}ft_nhandle.c \
-		${CPATH}ft_lutils.c
+BSRCS =	${CPATH}ft_nhandle.c
 
 LOBJ = ${LSRCS:.c=.o}
 

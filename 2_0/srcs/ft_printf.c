@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 16:07:47 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/18 14:11:37 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/19 10:15:11 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	ft_printarg(t_flags flags, va_list params, int res)
 	else if (flags.conv == 'u' || flags.conv == 'x'
 	|| flags.conv == 'X' || flags.conv == 'o')
 		res += ft_xhandle(flags, params);
-/*	else if (flags.conv == 'd' || flags.conv == 'i')
-		res += ft_d_handle(flags, params);*/
+	else if (flags.conv == 'd' || flags.conv == 'i')
+		res += ft_dhandle(flags, params);
 	else if (flags.conv == 'p')
 		res += ft_phandle(flags, params);
 	else if (flags.conv == 'n')

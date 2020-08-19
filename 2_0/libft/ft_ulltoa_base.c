@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 16:06:27 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/17 14:18:09 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/19 10:19:04 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "libftprintf.h"
 
-static unsigned int	ft_nbrlen(unsigned long long n, unsigned int base_len)
+static unsigned int	ft_ulli_len(unsigned long long n, unsigned int base_len)
 {
 	int x;
 
@@ -36,7 +36,7 @@ char				*ft_ulltoa_base(unsigned long long n, char *base)
 	unsigned int	base_len;
 
 	base_len = ft_strlen(base);
-	i = ft_nbrlen(n, base_len);
+	i = ft_ulli_len(n, base_len);
 	if (!(res = malloc(sizeof(char) * (i + 1))))
 		return (NULL);
 	res[i--] = '\0';
