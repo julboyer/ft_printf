@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/17 10:45:51 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/19 09:34:32 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/25 14:43:36 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ size_t		ft_unbrlen_base(unsigned long long n, unsigned int base_len)
 	return (x);
 }
 
-int		ft_nbrlen(long long n)
+int			ft_nbrlen(long long n)
 {
 	int x;
 

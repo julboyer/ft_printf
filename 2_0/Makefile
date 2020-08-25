@@ -72,8 +72,6 @@ SRCS =	${CPATH}ft_atoll.c \
 		${CPATH}ft_dhandle.c \
 		${CPATH}ft_positive_flag.c
 
-BSRCS =	${CPATH}ft_nhandle.c
-
 LOBJ = ${LSRCS:.c=.o}
 
 OBJ = ${SRCS:.c=.o}
@@ -104,8 +102,7 @@ fclean :	clean
 
 re :	fclean all
 
-bonus :		${LOBJ} ${OBJ} ${BOBJ}
-			ar rcs ${NAME} ${LOBJ} ${OBJ} ${BOBJ}
+bonus :		all
 
 libft : ${LOBJ}
 		ar rcs ${NLIBFT} ${LSRCS}

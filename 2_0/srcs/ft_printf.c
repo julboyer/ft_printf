@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/26 16:07:47 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/19 10:15:11 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/19 12:58:10 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "libftprintf.h"
 
-int	ft_printarg(t_flags flags, va_list params, int res)
+int		ft_printarg(t_flags flags, va_list params, int res)
 {
 	if (flags.conv == 'c' || flags.conv == '%')
 		res += ft_chandle(flags, params);
@@ -39,7 +39,7 @@ void	ft_verif_flags(t_flags *flags)
 		flags->flag_width = '-';
 		flags->width *= -1;
 	}
-	if (flags->prec >= 0 && flags->flag_width != '-')
+	if (flags->prec >= 0 && flags->flag_width != '-' && flags->conv != 'f')
 		flags->flag_width = ' ';
 	if (flags->conv == 'p')
 		flags->pref = '#';

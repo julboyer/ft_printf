@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 17:38:25 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/19 10:21:30 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/23 14:32:15 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 # include <wchar.h>
 # include <unistd.h>
 
-typedef struct		s_list
+typedef struct			s_list
 {
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+	void				*content;
+	struct s_list		*next;
+}						t_list;
 
 typedef union			u_type
 {
@@ -54,6 +54,14 @@ typedef struct			s_flags
 	int					total_len;
 	t_type				u;
 }						t_flags;
+
+typedef struct			s_double
+{
+	char				sign;
+	short				exp;
+	long				mantis;
+	int					log_10;
+}						t_double;
 
 int						get_next_line(int fd, char **line);
 int						ft_isalpha(int c);
@@ -129,7 +137,7 @@ size_t					ft_unbrlen_base(unsigned long long n,
 						unsigned int base_len);
 char					*ft_ulltoa_basep(unsigned long long n, char *base,
 						int i, int base_len);
-char					*ft_sharp_flag(char *s, t_flags flags);
+char					*ft_sharp_flag(char *s, t_flags *flags);
 int						ft_phandle(t_flags flags, va_list params);
 int						ft_xhandle(t_flags flags, va_list params);
 int						ft_nbrlen(long long n);
@@ -138,3 +146,4 @@ char					*ft_positive_flag(char *s, t_flags flags);
 int						ft_dhandle(t_flags flgs, va_list params);
 
 #endif
+
