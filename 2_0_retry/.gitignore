@@ -1,0 +1,10 @@
+main.c
+a.out*
+42TESTERS-PRINTF
+pft_2019/
+result*
+*.out
+*.o
+*.a
+Tests
+.vscode
