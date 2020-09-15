@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 17:38:25 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/23 14:32:15 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/09/11 13:21:01 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # endif
 # include <wchar.h>
 # include <unistd.h>
+# ifndef MAXDIGIT
+#  define MAXDIGIT 1080
+# endif
+# define LOG10_2 0.30102999566398119521373889472449
+# define MSKMANTIS 4503599627370495UL
 
 typedef struct			s_list
 {
@@ -34,8 +39,7 @@ typedef union			u_type
 	unsigned long long	ulli;
 	char				*s;
 	wchar_t				*ls;
-	double				lf;
-	long double			llf;
+	double				d;
 	short int			*sn;
 	int					*n;
 	long int			*ln;
@@ -47,6 +51,7 @@ typedef struct			s_flags
 	char				conv;
 	int					type;
 	char				pref;
+	char				sharp;
 	int					prec;
 	char				flag_width;
 	int					width;
@@ -61,7 +66,16 @@ typedef struct			s_double
 	short				exp;
 	long				mantis;
 	int					log_10;
+	int					len_entier;
+	int					len_e;
 }						t_double;
+
+typedef struct			s_bigint
+{
+	char				nbr[MAXDIGIT];
+	int					lastdig;
+	char				sign;
+}						t_bigint;
 
 int						get_next_line(int fd, char **line);
 int						ft_isalpha(int c);
@@ -119,6 +133,7 @@ char					*ft_strncpy(char *dest, char *src, unsigned int n);
 char					*ft_ltoa(long int n);
 char					*ft_ulltoa_base(unsigned long long int n,
 		char *base);
+int						ft_strcmp(char *s1, char *s2);
 
 int						ft_printf(const char *s,
 		...) __attribute__((format(printf,1,2)));
@@ -142,8 +157,28 @@ int						ft_phandle(t_flags flags, va_list params);
 int						ft_xhandle(t_flags flags, va_list params);
 int						ft_nbrlen(long long n);
 char					*ft_lltoa_absp(long long int n, int i);
-char					*ft_positive_flag(char *s, t_flags flags);
+char					*ft_positive_flag(char *s, t_flags *flags);
 int						ft_dhandle(t_flags flgs, va_list params);
+int						ft_fhandle(t_flags flags, va_list params);
+char					*ft_dtoaf(t_double flt, t_flags *flags);
+int						ft_printarg(t_flags flags, va_list params, int res);
+int						ft_ghandle(t_flags flgs, va_list params);
+char					*ft_dtoag(t_double flt, t_flags *flgs);
+
+void					ft_lltobigint(long long n, t_bigint *b);
+int						ft_bigintcomp(t_bigint *a, t_bigint *b);
+void					ft_bigint_pow10(int pow, t_bigint *b);
+void					ft_zero_adjust(t_bigint *b);
+void					ft_divbigint(t_bigint *a, t_bigint *b, t_bigint *res);
+void					ft_multbigint(t_bigint *a, t_bigint *b, t_bigint *res);
+void					ft_dtobigint(t_bigint *res, t_double flt);
+t_double				ft_initflt(double n);
+int						ft_ceil(double f);
+int						ft_floor(double f);
+double					ft_pow(double nb, int p);
+void					ft_addbigint(t_bigint *a, t_bigint *b, t_bigint *res);
+double					ft_fabs(double nb);
+
+void print_bignum(t_bigint *n);
 
 #endif
-

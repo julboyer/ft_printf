@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprintconvert.c                                :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/06 16:28:37 by julboyer          #+#    #+#             */
-/*   Updated: 2020/09/09 14:53:00 by julboyer         ###   ########.fr       */
+/*   Created: 2020/08/26 13:56:05 by julboyer          #+#    #+#             */
+/*   Updated: 2020/08/26 13:58:00 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprintconvert(char c)
+int		ft_strcmp(char *s1, char *s2)
 {
-	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i' || c == 'u'
-		|| c == 'x' || c == 'X' || c == '%' || c == 'n' || c == 'o' || c == 'f'
-		|| c == 'e' || c == 'E' || c == 'g' || c == 'G')
-		return (1);
-	return (0);
+	unsigned int x;
+
+	x = 0;
+	while ((unsigned char)s1[x] == (unsigned char)s2[x]
+	&& (unsigned char)s1[x] && (unsigned char)s2[x])
+		x++;
+	return ((unsigned char)s1[x] - (unsigned char)s2[x]);
 }

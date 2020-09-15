@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_positive_flag.c                                 :+:      :+:    :+:   */
+/*   ft_dtobigint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/19 09:57:45 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/29 14:25:25 by julboyer         ###   ########.fr       */
+/*   Created: 2020/08/27 14:34:23 by julboyer          #+#    #+#             */
+/*   Updated: 2020/09/03 14:46:15 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*ft_positive_flag(char *s, t_flags *flags)
+void		ft_dtobigint(t_bigint *res, t_double flt)
 {
-	ft_memmove(s + 1, s, flags->s_conv++);
-	if (flags->u.lli < 0 || flags->u.d < 0)
-		s[0] = '-';
-	else if (flags->pref == '+')
-		s[0] = '+';
+	t_bigint	mantis;
+	t_bigint	big2;
+	int			i;
+
+	i = 0;
+	ft_lltobigint(flt.mantis, &mantis);
+	ft_lltobigint(2, &big2);
+	if (flt.exp < 0)
+		while (i > flt.exp)
+		{
+			if ((mantis.nbr[0] & 1) == 1)
+				ft_bigint_pow10(1, &mantis);
+			ft_divbigint(&mantis, &big2, res);
+			mantis = *res;
+			i--;
+		}
 	else
-		s[0] = ' ';
-	return (s);
+		while (i < flt.exp)
+		{
+			ft_multbigint(&mantis, &big2, res);
+			mantis = *res;
+			i++;
+		}
 }

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fhandle.c                                       :+:      :+:    :+:   */
+/*   ft_ghandle.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/20 10:44:20 by julboyer          #+#    #+#             */
-/*   Updated: 2020/09/11 13:53:09 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/09/10 14:22:44 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include "math.h"
 
-t_double	ft_initflt(double n)
+t_double	ft_initfltg(double n)
 {
 	t_double			flt;
 	unsigned long long	dtoll;
@@ -38,11 +37,10 @@ t_double	ft_initflt(double n)
 			flt.log_10++;
 	}
 	flt.len_e = 0;
-	flt.len_entier = 1 + ((flt.log_10 > 0) ? flt.log_10 : 0);
 	return (flt);
 }
 
-char		*ft_check_inf(t_double flt, t_flags *flags, int *len)
+char		*ft_check_infg(t_double flt, t_flags *flags, int *len)
 {
 	char *res;
 
@@ -71,7 +69,7 @@ char		*ft_check_inf(t_double flt, t_flags *flags, int *len)
 	return (res);
 }
 
-int			ft_check_nan(t_double flt, t_flags flags)
+int			ft_check_nang(t_double flt, t_flags flags)
 {
 	int		len;
 	char	*res;
@@ -81,7 +79,7 @@ int			ft_check_nan(t_double flt, t_flags flags)
 	if (flt.exp == 972)
 	{
 		if (flt.mantis == 1ULL << 52)
-			res = ft_check_inf(flt, &flags, &len);
+			res = ft_check_infg(flt, &flags, &len);
 		else
 		{
 			flags.s_conv = 3;
@@ -100,23 +98,17 @@ int			ft_check_nan(t_double flt, t_flags flags)
 	return (0);
 }
 
-int			ft_fhandle(t_flags flgs, va_list params)
+int			ft_gprint(t_flags flgs, t_double flt)
 {
 	int			len;
 	char		*res;
-	t_double	flt;
-	int			i;
 
-	flgs.u.d = va_arg(params, double);
-	flt = ft_initflt(flgs.u.d);
-	flt.log_10 = (flgs.u.d == 0.0) ? 0 : flt.log_10;
-	if ((len = ft_check_nan(flt, flgs)) != 0)
+	if ((len = ft_check_nang(flt, flgs)) != 0)
 		return (len);
 	if (flgs.conv == 'e' || flgs.conv == 'E')
 		flt.len_entier = 1;
-	i = flt.len_entier + flgs.prec + ((flgs.prec > 0) ? 1 : 0);
-	flgs.s_conv = (flgs.sharp == '#' && flgs.prec == 0) ? ++i : i;
-	res = ft_dtoaf(flt, &flgs);
+	flgs.s_conv = flgs.prec;
+	res = ft_dtoag(flt, &flgs);
 	flgs.s_conv += flt.len_e;
 	if (flt.sign == 1 || flgs.pref == ' ' || flgs.pref == '+')
 		ft_positive_flag(res, &flgs);
@@ -125,4 +117,21 @@ int			ft_fhandle(t_flags flgs, va_list params)
 	write(1, res, flgs.total_len);
 	free(res);
 	return (flgs.total_len);
+}
+
+int			ft_ghandle(t_flags flgs, va_list params)
+{
+	t_double	flt;
+
+	flgs.u.d = va_arg(params, double);
+	flt = ft_initfltg(flgs.u.d);
+	flt.log_10 = (flgs.u.d == 0.0) ? 0 : flt.log_10;
+	if (flt.log_10 < -4 || flt.len_entier > flgs.prec)
+	{
+		if (flgs.conv == 'g')
+			flgs.conv = 'e';
+		else if (flgs.conv == 'G')
+			flgs.conv = 'E';
+	}
+	return (ft_gprint(flgs, flt));
 }

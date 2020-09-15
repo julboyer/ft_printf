@@ -6,7 +6,7 @@
 /*   By: julboyer <julboyer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/19 09:04:25 by julboyer          #+#    #+#             */
-/*   Updated: 2020/08/19 11:26:20 by julboyer         ###   ########.fr       */
+/*   Updated: 2020/08/29 14:18:46 by julboyer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ int		ft_dhandle(t_flags flgs, va_list params)
 	res = ft_strcpy(res, tmp);
 	free(tmp);
 	if (flgs.pref == '+' || flgs.pref == ' ' || flgs.u.lli < 0)
-	{
-		res = ft_positive_flag(res, flgs);
-		flgs.s_conv++;
-	}
+		res = ft_positive_flag(res, &flgs);
 	if (len == flgs.width && flgs.width != 0)
 		res = ft_width(res, flgs);
 	write(1, res, len);
